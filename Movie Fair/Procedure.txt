@@ -1,0 +1,8 @@
+﻿Movie Fair Project
+
+step 1: create core project with 6 
+
+1. Remove exesting files and create new Home controller. Edit on Layout and Index and Crete home and About view
+2. Install Packages
+
+step 2: authentication: 
