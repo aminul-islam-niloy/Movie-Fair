@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Movie_Fair.Models.DTO;
 using Movie_Fair.Repositories.Abstruct;
+using Movie_Fair.Models.DTO;
 
 namespace Movie_Fair.Controllers
 {
@@ -11,15 +11,15 @@ namespace Movie_Fair.Controllers
         {
             this.authService = authService;
         }
-
+      
 
         //public async Task<IActionResult> Register()
         //{
-        //    var model = new Registration
+        //    var model = new RegistrationModel
         //    {
         //        Email = "admin@gmail.com",
         //        Username = "admin",
-        //        Name = "admin",
+        //        Name = "Ravindra",
         //        Password = "Admin@123",
         //        PasswordConfirm = "Admin@123",
         //        Role = "Admin"
@@ -41,7 +41,7 @@ namespace Movie_Fair.Controllers
                 return View(model);
 
             var result = await authService.LoginAsync(model);
-            if (result.StatusCode == 1)
+            if (result.StatusCode == 0)
                 return RedirectToAction("Index", "Home");
             else
             {
@@ -55,7 +55,6 @@ namespace Movie_Fair.Controllers
             await authService.LogoutAsync();
             return RedirectToAction(nameof(Login));
         }
-
 
     }
 }

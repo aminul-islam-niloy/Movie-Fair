@@ -12,6 +12,7 @@ namespace Movie_Fair.Repositories.Implementation
             private readonly UserManager<ApplicationUser> userManager;
             private readonly RoleManager<IdentityRole> roleManager;
             private readonly SignInManager<ApplicationUser> signInManager;
+
             public UserAuthenticationService(UserManager<ApplicationUser> userManager,
                 SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager)
             {
@@ -82,6 +83,7 @@ namespace Movie_Fair.Repositories.Implementation
                 }
 
                 var signInResult = await signInManager.PasswordSignInAsync(user, model.Password, true, true);
+
                 if (signInResult.Succeeded)
                 {
                     var userRoles = await userManager.GetRolesAsync(user);
